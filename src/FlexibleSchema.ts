@@ -1,4 +1,4 @@
-type RegularAttribute = {
+export type RegularAttribute = {
     name: string
     map: string
 } | String;
