@@ -1,5 +1,6 @@
 import FlexibleSchema from "../src/FlexibleSchema"
 import { UnknownParameter } from "../src/Exceptions"
+
 describe('Testing Flexible Schema Module', () => {
 
     test('Test Convert MongoDB Schema without mapping', () => {

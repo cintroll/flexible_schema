@@ -3,6 +3,10 @@ type RegularAttribute = {
     map: string
 } | String;
 
+export type BusinessInterfaceData = {
+    [key: string] : string | number
+}
+
 export default class FlexibleSchema {
     private reg_attributes : RegularAttribute[];
 
@@ -23,11 +27,11 @@ export default class FlexibleSchema {
      * @param data data from the database interface
      * @returns the data in the business interface format
      */
-    public convert(data: any) {
+    public convert(data: any) : BusinessInterfaceData {
         this.reg_attributes.forEach(element => {
             
         });
 
         return {};
     }
-}
+};
