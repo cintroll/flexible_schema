@@ -29,7 +29,7 @@ describe('Testing Flexible Schema Module', () => {
         };
         
         const flexible_schema = new FlexibleSchema(reg_attributes);
-        expect(flexible_schema.convert(data)).toBe(result);
+        expect(flexible_schema.convert(data)).toStrictEqual(result);
     });
 
     test('Test Convert MongoDB Schema with mapping', () => {
@@ -63,7 +63,7 @@ describe('Testing Flexible Schema Module', () => {
         };
         
         const flexible_schema = new FlexibleSchema(reg_attributes);
-        expect(flexible_schema.convert(data)).toBe(result);
+        expect(flexible_schema.convert(data)).toStrictEqual(result);
     });
 
     test('Test Convert MongoDB Schema inexistent parameter', () => {
@@ -89,9 +89,9 @@ describe('Testing Flexible Schema Module', () => {
             ecommerceCurrentPrice: 12, 
             ecommerceOfferPrice: 0, 
             ecommerceName: 'Coca Cola Normal 2L' 
-        };
+        };        
         
         const flexible_schema = new FlexibleSchema(reg_attributes);
-        expect(flexible_schema.convert(data)).toThrow(UnknownParameter);
+        expect(() => flexible_schema.convert(data)).toThrow(UnknownParameter);
     });
 });

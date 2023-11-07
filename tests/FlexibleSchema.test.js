@@ -31,7 +31,7 @@ describe('Testing Flexible Schema Module', () => {
             ecommerceName: 'Coca Cola Normal 2L'
         };
         const flexible_schema = new FlexibleSchema_1.default(reg_attributes);
-        expect(flexible_schema.convert(data)).toBe(result);
+        expect(flexible_schema.convert(data)).toStrictEqual(result);
     });
     test('Test Convert MongoDB Schema with mapping', () => {
         const reg_attributes = [
@@ -63,7 +63,7 @@ describe('Testing Flexible Schema Module', () => {
             ecommerceName: 'Coca Cola Normal 2L'
         };
         const flexible_schema = new FlexibleSchema_1.default(reg_attributes);
-        expect(flexible_schema.convert(data)).toBe(result);
+        expect(flexible_schema.convert(data)).toStrictEqual(result);
     });
     test('Test Convert MongoDB Schema inexistent parameter', () => {
         const reg_attributes = ['name', 'currentPrice', 'offerPrice', 'quantity', 'invalidParam'];
@@ -90,6 +90,6 @@ describe('Testing Flexible Schema Module', () => {
             ecommerceName: 'Coca Cola Normal 2L'
         };
         const flexible_schema = new FlexibleSchema_1.default(reg_attributes);
-        expect(flexible_schema.convert(data)).toThrow(Exceptions_1.UnknownParameter);
+        expect(() => flexible_schema.convert(data)).toThrow(Exceptions_1.UnknownParameter);
     });
 });

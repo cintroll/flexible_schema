@@ -1,5 +1,9 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
+const DatabaseInterfaceConverter_1 = __importDefault(require("./DatabaseInterfaceConverter"));
 class FlexibleSchema {
     /**
      * This class was designed to facilitate the integration
@@ -18,9 +22,9 @@ class FlexibleSchema {
      * @returns the data in the business interface format
      */
     convert(data) {
-        this.reg_attributes.forEach(element => {
-        });
-        return {};
+        const converter = new DatabaseInterfaceConverter_1.default();
+        return converter.convert(data, this.reg_attributes);
     }
 }
 exports.default = FlexibleSchema;
+;

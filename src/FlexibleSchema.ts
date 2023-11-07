@@ -1,7 +1,9 @@
+import DatabaseInterfaceConverter from "./DatabaseInterfaceConverter";
+
 export type RegularAttribute = {
     name: string
     map: string
-} | String;
+} | string;
 
 export type BusinessInterfaceData = {
     [key: string] : string | number
@@ -28,10 +30,8 @@ export default class FlexibleSchema {
      * @returns the data in the business interface format
      */
     public convert(data: any) : BusinessInterfaceData {
-        this.reg_attributes.forEach(element => {
-            
-        });
+        const converter = new DatabaseInterfaceConverter();
 
-        return {};
+        return converter.convert(data, this.reg_attributes);
     }
 };
