@@ -1,11 +1,13 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-const ConverterInterface_1 = __importDefault(require("./ConverterInterface"));
 const Exceptions_1 = require("./Exceptions");
-class DatabaseInterfaceConverter extends ConverterInterface_1.default {
+class DatabaseInterfaceConverter {
+    /**
+     * Private function to transform a complex database interface with multilevels
+     * in a simple object with olny one layer
+     * @param data data from the database interface
+     * @returns the database interface convert to one a simple object
+     */
     flatten(data) {
         let flatten_data = {};
         const keys = Object.keys(data);
@@ -24,6 +26,14 @@ class DatabaseInterfaceConverter extends ConverterInterface_1.default {
         }
         return flatten_data;
     }
+    /**
+     * This method should convert the data from the database interface to the
+     * business interface.
+     *
+     * @param data data from the database interface
+     * @param reg_attributes regular attributes from business interface
+     * @returns the data in the business interface data format
+     */
     convert(data, reg_attributes) {
         let business_data = {};
         let flatt_data = this.flatten(data);
