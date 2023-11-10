@@ -19,6 +19,12 @@ type DatabaseInterfaceData = {
 
 export default class DatabaseInterfaceConverter extends Converter<DatabaseInterfaceData> {
 
+    /**
+     * Private function to transform a complex database interface with multilevels
+     * in a simple object with olny one layer
+     * @param data data from the database interface
+     * @returns the database interface convert to one a simple object
+     */
     private flatten(data: DatabaseInterfaceData) : BusinessInterfaceData {
         let flatten_data : BusinessInterfaceData = {};
         const keys = Object.keys(data);
@@ -41,6 +47,14 @@ export default class DatabaseInterfaceConverter extends Converter<DatabaseInterf
         return flatten_data;
     }
 
+    /**
+     * This method should convert the data from the database interface to the
+     * business interface.
+     * 
+     * @param data data from the database interface
+     * @param reg_attributes regular attributes from business interface
+     * @returns the data in the business interface data format
+     */
     convert(data: DatabaseInterfaceData, reg_attributes: RegularAttribute[]): BusinessInterfaceData {
         let business_data : BusinessInterfaceData = {};
         let flatt_data = this.flatten(data);
