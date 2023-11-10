@@ -17,7 +17,7 @@ type DatabaseInterfaceData = {
     [key: string] : DataBaseInterfaceBaseTypes | DatabaseInterfaceNestedData | DatabaseInterfaceNestedParameter[];
 };
 
-export default class DatabaseInterfaceConverter extends Converter<DatabaseInterfaceData> {
+export default class DatabaseInterfaceConverter implements Converter<DatabaseInterfaceData> {
 
     /**
      * Private function to transform a complex database interface with multilevels
