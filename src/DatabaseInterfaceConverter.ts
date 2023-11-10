@@ -57,11 +57,11 @@ export default class DatabaseInterfaceConverter extends Converter<DatabaseInterf
                 map = attr.map;
             }
 
-            if (key in flatt_data) {
+            if (map in flatt_data) {
                 business_data[key] = flatt_data[map];
                 keys.push(key);
             } else {
-                throw new UnknownParameter(key + " not found in database interface data");
+                throw new UnknownParameter(map + " not found in database interface data");
             }            
         }
 

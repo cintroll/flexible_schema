@@ -38,12 +38,12 @@ class DatabaseInterfaceConverter extends ConverterInterface_1.default {
                 key = attr.name;
                 map = attr.map;
             }
-            if (key in flatt_data) {
+            if (map in flatt_data) {
                 business_data[key] = flatt_data[map];
                 keys.push(key);
             }
             else {
-                throw new Exceptions_1.UnknownParameter(key + " not found in database interface data");
+                throw new Exceptions_1.UnknownParameter(map + " not found in database interface data");
             }
         }
         keys.forEach(k => delete flatt_data[k]);
